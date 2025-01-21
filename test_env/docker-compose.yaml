@@ -1,0 +1,34 @@
+services:
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server:latest
+    container_name: openssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PUBLIC_KEY=yourpublickey
+      - PUBLIC_KEY_FILE=/config/id_ed25519.pub
+      - PUBLIC_KEY_DIR=/config
+      - SUDO_ACCESS=true
+      - PASSWORD_ACCESS=true
+      - USER_PASSWORD=password
+      - USER_NAME=test
+      - LOG_STDOUT=true
+    volumes:
+      - "./sshconfig:/config"
+    ports:
+      - "2222:2222"
+    restart: unless-stopped
+
+  git-server:
+    image: rockstorm/git-server
+    container_name: git-server
+    environment:
+      - "GIT_PASSWORD=123456"
+    volumes:
+      - "./gitconfig:/srv/git"
+      - "./gitconfig/authorized_keys:/home/git/.ssh/authorized_keys"
+    ports:
+      - "2221:22"
+    restart: unless-stopped
+
