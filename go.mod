@@ -1,4 +1,4 @@
-module cicd
+module github.com/acoronadoc/cicd
 
 go 1.21.10
 
