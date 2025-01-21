@@ -10,7 +10,8 @@ CI/CD stands for Continuous Integration and Continuous Delivery. It's a set of p
 
 # Features
 
-* Lightweight and fast.
+* Lightweight, flexible and fast.
+* Create pipelines.
 * Connect Git repositories(Check commits and clone) using username/password or certificates.
 * Execute Local or SSH/SFTP commands.
 * Check for remote commands availability.
