@@ -34,13 +34,13 @@ func processGitLastCommit(branch string, out string, ecode int) (string, int) {
 	return "", ecode
 }
 
-func GitClone(url string) int {
-	_, _, ecode := ExecuteCommand("git", []string{"clone", url}, nil)
+func GitClone(url string, branch string, folder string) int {
+	_, _, ecode := ExecuteCommand("git", []string{"clone", "-b", branch, url, folder}, nil)
 	return ecode
 }
 
-func GitCloneSSH(url string, idrsa string) int {
-	_, _, ecode := ExecuteCommand("git", []string{"clone", url}, []string{"GIT_SSH_VARIANT=ssh", "GIT_SSH_COMMAND=ssh -i " + idrsa})
+func GitCloneSSH(url string, branch string, folder string, idrsa string) int {
+	_, _, ecode := ExecuteCommand("git", []string{"clone", "-b", branch, url, folder}, []string{"GIT_SSH_VARIANT=ssh", "GIT_SSH_COMMAND=ssh -i " + idrsa})
 
 	return ecode
 }
