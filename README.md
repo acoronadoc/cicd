@@ -23,6 +23,7 @@ CI/CD stands for Continuous Integration and Continuous Delivery. It's a set of p
 * More operations with repositories.
 * Log exports.
 * A User console in order to manage scripts, logs and servers.
+* Native support for Git.
 
 # Installation
 

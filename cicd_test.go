@@ -136,7 +136,7 @@ func TestGitLastCommitSSH(t *testing.T) {
 
 func TestGitClone(t *testing.T) {
 
-	ecode := GitClone(GitRepoURLHttps)
+	ecode := GitClone(GitRepoURLHttps, "master", "tmpgit")
 
 	if ecode != 0 {
 		t.Error("Se esperaba 0 y se obtuvo error Git", ecode)
@@ -149,7 +149,7 @@ func TestGitClone(t *testing.T) {
 
 func TestGitCloneSSH(t *testing.T) {
 	pwd, _ := os.Getwd()
-	ecode := GitCloneSSH(GitRepoURLSSH, filepath.Join(pwd, GitSSHRSA))
+	ecode := GitCloneSSH(GitRepoURLSSH, "master", "tmpgit", filepath.Join(pwd, GitSSHRSA))
 
 	if ecode != 0 {
 		t.Error("Se esperaba 0 y se obtuvo error Git", ecode)
