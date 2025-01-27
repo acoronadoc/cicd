@@ -15,7 +15,8 @@ services:
       - USER_NAME=test
       - LOG_STDOUT=true
     volumes:
-      - "./sshconfig:/config"
+      - "./sshconfig/id_ed25519:/config/id_ed25519"
+      - "./sshconfig/id_ed25519.pub:/config/id_ed25519.pub"
     ports:
       - "2222:2222"
     restart: unless-stopped
