@@ -23,7 +23,7 @@ func main() {
 			cicd.GitCloneSSH(repoURL, repoBranch, "./repo", repoKey)
 			cicd.ExecuteCommand("kubectl", []string{"delete", "configmap", "htmlapp"}, []string{})
 			cicd.ExecuteCommand("kubectl", []string{"create", "configmap", "htmlapp", "--from-file=./repo/index.html"}, []string{})
-			cicd.ExecuteCommand("kubectl", []string{"apply", "-f", "kubectl/manifest.yaml", "--force"}, []string{})
+			cicd.ExecuteCommand("kubectl", []string{"apply", "-f", "manifest.yaml", "--force"}, []string{})
 		}},
 	)
 
