@@ -43,12 +43,12 @@ func PipeWaitForCommitMulti(repoURL []string, branch []string, key string, sleep
 		Action: func(state *map[string]interface{}) {
 			commitId := make([]string, len(repoURL))
 
-			for i, _ := range repoURL {
+			for i := range repoURL {
 				commitId[i], _ = GitLastCommitSSH(repoURL[i], branch[i], key)
 			}
 
 			for {
-				for i, _ := range repoURL {
+				for i := range repoURL {
 					ncid, ecode := GitLastCommitSSH(repoURL[i], branch[i], key)
 
 					if ncid != commitId[i] && ecode == 0 {
